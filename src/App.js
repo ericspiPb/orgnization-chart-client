@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+
+import Chart from "./components/Chart"
+
+import imageLoaderService from "./services/ImageLoaderService"
+import dataLoaderService from "./services/DataLoaderService"
+
+import './App.css'
+import BarChart from './components/BarChart';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.chart = React.createRef()
+    // imageLoaderService.load()
+    // dataLoaderService.load("data.json").then(data => this.chart.current.setState({data}))
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        {/* <Chart id="orgChart" ref={this.chart}/> */}
+        <BarChart data={[5,10,1,3]} size={[640,480]}/>
       </div>
     );
   }
